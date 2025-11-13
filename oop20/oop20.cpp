@@ -79,6 +79,7 @@ public:
 	void SetEngines(int e) { engines = e; }
 	int GetWingspanLength() { return wingspanLength; }
 	void SetWingspanLength(int wl) { wingspanLength = wl; }
+
 	void Print()
 	{
 		Transport::Print();
@@ -108,6 +109,7 @@ public:
 	void SetCrewSize(int cs) { crewSize = cs; }
 	string GetTypeFuel() { return typefuel; }
 	void SetTypeFuel(string tf) { typefuel = tf; }
+
 	void Print()
 	{
 		Transport::Print();
