@@ -61,13 +61,33 @@ public:
 };
 
 class Airplane : public Transport {
-	protected:
+protected:
 	string flightRange;
 	int wingspan;
 	int engines;
 	int wingspanLength;
+public:
+	Airplane() {}
+	Airplane(string n, int s, string c, int se, string fr, int w, int e, int wl)
+		: Transport(n, s, c, se), flightRange(fr), wingspan(w), engines(e), wingspanLength(wl) {}
 
-}
+	string GetFlightRange() { return flightRange; }
+	void SetFlightRange(string fr) { flightRange = fr; }
+	int GetWingspan() { return wingspan; }
+	void SetWingspan(int w) { wingspan = w; }
+	int GetEngines() { return engines; }
+	void SetEngines(int e) { engines = e; }
+	int GetWingspanLength() { return wingspanLength; }
+	void SetWingspanLength(int wl) { wingspanLength = wl; }
+	void Print()
+	{
+		Transport::Print();
+		cout << "Flight Range: " << flightRange << endl;
+		cout << "Wingspan: " << wingspan << " meters" << endl;
+		cout << "Engines: " << engines << endl;
+		cout << "Wingspan Length: " << wingspanLength << " meters" << endl;
+	}
+};
 
 int main() {
 	Transport t1("Car", 120, "Red", 5);
@@ -75,5 +95,9 @@ int main() {
 	cout << endl;
 	Truck tr1("Big Truck", 80, "Blue", 2, 20, 18, 3, 15);
 	tr1.Print();
+	cout << endl;
+	Airplane a1("Jet", 900, "White", 150, "5000 km", 35, 2, 30);
+	a1.Print();
+	return 0;
 
 }
