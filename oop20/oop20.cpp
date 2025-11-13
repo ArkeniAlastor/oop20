@@ -89,6 +89,35 @@ public:
 	}
 };
 
+class Ship : public Transport {
+protected:
+	string portOfRegistry;
+	int displacement;
+	int crewSize;
+	string typefuel;
+public:
+	Ship() {}
+	Ship(string n, int s, string c, int se, string por, int d, int cs, string tf)
+		: Transport(n, s, c, se), portOfRegistry(por), displacement(d), crewSize(cs), typefuel(tf) {}
+
+	string GetPortOfRegistry() { return portOfRegistry; }
+	void SetPortOfRegistry(string por) { portOfRegistry = por; }
+	int GetDisplacement() { return displacement; }
+	void SetDisplacement(int d) { displacement = d; }
+	int GetCrewSize() { return crewSize; }
+	void SetCrewSize(int cs) { crewSize = cs; }
+	string GetTypeFuel() { return typefuel; }
+	void SetTypeFuel(string tf) { typefuel = tf; }
+	void Print()
+	{
+		Transport::Print();
+		cout << "Port of Registry: " << portOfRegistry << endl;
+		cout << "Displacement: " << displacement << " tons" << endl;
+		cout << "Crew Size: " << crewSize << endl;
+		cout << "Type of Fuel: " << typefuel << endl;
+	}
+};
+
 int main() {
 	Transport t1("Car", 120, "Red", 5);
 	t1.Print();
@@ -98,6 +127,9 @@ int main() {
 	cout << endl;
 	Airplane a1("Jet", 900, "White", 150, "5000 km", 35, 2, 30);
 	a1.Print();
+	cout << endl;
+	Ship s1("Cargo Ship", 40, "Gray", 30, "New York", 50000, 20, "Diesel");
+	s1.Print();
 	return 0;
 
 }
