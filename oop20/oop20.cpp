@@ -198,6 +198,42 @@ public:
 	}
 };
 
+class Tank : public Transport {
+protected:
+	string armorType;
+	int gunCaliber;
+	int crewSize;
+	double weight;
+	double mainGunCaliber;
+public:
+	Tank() {}
+	Tank(string n, int s, string c, int se, string at, int gc, int cs, double w, double mgc)
+		: Transport(n, s, c, se), armorType(at), gunCaliber(gc), crewSize(cs), weight(w), mainGunCaliber(mgc) {
+	}
+
+	string GetArmorType() { return armorType; }
+	void SetArmorType(string at) { armorType = at; }
+	int GetGunCaliber() { return gunCaliber; }
+	void SetGunCaliber(int gc) { gunCaliber = gc; }
+	int GetCrewSize() { return crewSize; }
+	void SetCrewSize(int cs) { crewSize = cs; }
+	double GetWeight() { return weight; }
+	void SetWeight(double w) { weight = w; }
+	double GetMainGunCaliber() { return mainGunCaliber; }
+	void SetMainGunCaliber(double mgc) { mainGunCaliber = mgc; }
+
+	void Print()
+	{
+		Transport::Print();
+		cout << "Armor Type: " << armorType << endl;
+		cout << "Gun Caliber: " << gunCaliber << " mm" << endl;
+		cout << "Crew Size: " << crewSize << endl;
+		cout << "Weight: " << weight << " tons" << endl;
+		cout << "Main Gun Caliber: " << mainGunCaliber << " mm" << endl;
+	}
+
+};
+
 int main() {
 	Transport t1("Car", 120, "Red", 5);
 	t1.Print();
@@ -215,5 +251,10 @@ int main() {
 	c1.Print();
 	cout << endl;
 	Bicycle b1("Mountain Bike", 30, "Green", 1, "Mountain", 21, "Aluminum", "Disc", 27.5, 14.5);
+	b1.Print();
+	cout << endl;
+	Tank tk1("Battle Tank", 60, "Camouflage", 4, "Composite", 120, 3, 50.0, 120.0);
+	tk1.Print();
+	return 0;
 
 }
