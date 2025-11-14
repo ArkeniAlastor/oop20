@@ -74,10 +74,12 @@ protected:
 	int wingspan;
 	int engines;
 	int wingspanLength;
+	string type;
+	string engineType;
 public:
 	Airplane() {}
-	Airplane(string n, int s, string c, int se, string fr, int w, int e, int wl)
-		: Transport(n, s, c, se), flightRange(fr), wingspan(w), engines(e), wingspanLength(wl) {}
+	Airplane(string n, int s, string c, int se, string fr, int w, int e, int wl, string tp, string et)
+		: Transport(n, s, c, se), flightRange(fr), wingspan(w), engines(e), wingspanLength(wl), type(tp), engineType(et) {}
 
 	string GetFlightRange() { return flightRange; }
 	void SetFlightRange(string fr) { flightRange = fr; }
@@ -87,6 +89,10 @@ public:
 	void SetEngines(int e) { engines = e; }
 	int GetWingspanLength() { return wingspanLength; }
 	void SetWingspanLength(int wl) { wingspanLength = wl; }
+	string GetType() { return type; }
+	void SetType(string tp) { type = tp; }
+	string GetEngineType() { return engineType; }
+	void SetEngineType(string et) { engineType = et; }
 
 	void Print()
 	{
@@ -95,6 +101,8 @@ public:
 		cout << "Wingspan: " << wingspan << " meters" << endl;
 		cout << "Engines: " << engines << endl;
 		cout << "Wingspan Length: " << wingspanLength << " meters" << endl;
+		cout << "Type: " << type << endl;
+		cout << "Engine Type: " << engineType << endl;
 	}
 };
 
@@ -249,10 +257,11 @@ int main() {
 	cout << endl;
 
 	Truck tr1("Big Truck", 80, "Blue", 2, 20, 18, 4, 15, "Air Suspension", "ABS");
+	tr1.SetLiftingCapacity(18);
 	tr1.Print();
 	cout << endl;
 
-	Airplane a1("Jet", 900, "White", 150, "5000 km", 35, 2, 30);
+	Airplane a1)("Jet Plane", 900, "White", 150, "5000 km", 35, 2, 30, "Commercial", "Turbofan");
 	a1.Print();
 	cout << endl;
 
