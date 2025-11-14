@@ -36,10 +36,12 @@ protected:
 	int wheels;
 	int axles;
 	int liftingcapacity;
+	string suspensionType;
+	string brakeSystem;
 public:
 	Truck() {}
-	Truck(string n, int s, string c, int se, int lc, int w, int a, int lp)
-		: Transport(n, s, c, se), loadCapacity(lc), wheels(w), axles(a), liftingcapacity(lp) {}
+	Truck(string n, int s, string c, int se, int lc, int w, int a, int lp, string st, string bs)
+		: Transport(n, s, c, se), loadCapacity(lc), wheels(w), axles(a), liftingcapacity(lp), suspensionType(st), brakeSystem(bs) {}
 
 	int GetLoadCapacity() { return loadCapacity; }
 	void SetLoadCapacity(int lc) { loadCapacity = lc; }
@@ -49,6 +51,10 @@ public:
 	void SetAxles(int a) { axles = a; }
 	int GetLiftingCapacity() { return liftingcapacity; }
 	void SetLiftingCapacity(int lp) { liftingcapacity = lp; }
+	string GetSuspensionType() { return suspensionType; }
+	void SetSuspensionType(string st) { suspensionType = st; }
+	string GetBrakeSystem() { return brakeSystem; }
+	void SetBrakeSystem(string bs) { brakeSystem = bs; }
 
 	void Print()
 	{
@@ -57,6 +63,8 @@ public:
 		cout << "Wheels: " << wheels << endl;
 		cout << "Axles: " << axles << endl;
 		cout << "Lifting Capacity: " << liftingcapacity << " tons" << endl;
+		cout << "Suspension Type: " << suspensionType << endl;
+		cout << "Brake System: " << brakeSystem << endl;
 	}
 };
 
@@ -235,24 +243,31 @@ public:
 };
 
 int main() {
+
 	Transport t1("Car", 120, "Red", 5);
 	t1.Print();
 	cout << endl;
-	Truck tr1("Big Truck", 80, "Blue", 2, 20, 18, 3, 15);
+
+	Truck tr1("Big Truck", 80, "Blue", 2, 20, 18, 4, 15, "Air Suspension", "ABS");
 	tr1.Print();
 	cout << endl;
+
 	Airplane a1("Jet", 900, "White", 150, "5000 km", 35, 2, 30);
 	a1.Print();
 	cout << endl;
+
 	Ship s1("Cargo Ship", 40, "Gray", 30, "New York", 50000, 20, "Diesel");
 	s1.Print();
 	cout << endl;
+
 	Car c1("Sedan", 160, "Black", 5, "Model S", 2020, "Sedan", "Electric", "Automatic", "RWD");
 	c1.Print();
 	cout << endl;
+
 	Bicycle b1("Mountain Bike", 30, "Green", 1, "Mountain", 21, "Aluminum", "Disc", 27.5, 14.5);
 	b1.Print();
 	cout << endl;
+
 	Tank tk1("Battle Tank", 60, "Camouflage", 4, "Composite", 120, 3, 50.0, 120.0);
 	tk1.Print();
 	return 0;
