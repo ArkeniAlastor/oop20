@@ -120,6 +120,84 @@ public:
 	}
 };
 
+class Car : public Transport {
+protected:
+	string model;
+	int year;
+	string bodyType;
+	string engineType;
+	string transmission;
+	string driveType;
+public:
+	Car() {}
+	Car(string n, int s, string c, int se, string m, int y, string bt, string et, string tr, string dt)
+		: Transport(n, s, c, se), model(m), year(y), bodyType(bt), engineType(et), transmission(tr), driveType(dt) {
+	}
+	
+	string GetModel() { return model; }
+	void SetModel(string m) { model = m; }
+	int GetYear() { return year; }
+	void SetYear(int y) { year = y; }
+	string GetBodyType() { return bodyType; }
+	void SetBodyType(string bt) { bodyType = bt; }
+	string GetEngineType() { return engineType; }
+	void SetEngineType(string et) { engineType = et; }
+	string GetTransmission() { return transmission; }
+	void SetTransmission(string tr) { transmission = tr; }
+	string GetDriveType() { return driveType; }
+	void SetDriveType(string dt) { driveType = dt; }
+
+	void Print()
+	{
+		Transport::Print();
+		cout << "Model: " << model << endl;
+		cout << "Year: " << year << endl;
+		cout << "Body Type: " << bodyType << endl;
+		cout << "Engine Type: " << engineType << endl;
+		cout << "Transmission: " << transmission << endl;
+		cout << "Drive Type: " << driveType << endl;
+	}
+};
+
+class Bicycle : public Transport {
+protected:
+	string type;
+	int gearCount;
+	string frameMaterial;
+	string brakeType;
+	double wheelSize;
+	double weight;
+public:
+	Bicycle() {}
+	Bicycle(string n, int s, string c, int se, string t, int gc, string fm, string bt, double ws, double w)
+		: Transport(n, s, c, se), type(t), gearCount(gc), frameMaterial(fm), brakeType(bt), wheelSize(ws), weight(w) {
+	}
+
+	string GetType() { return type; }
+	void SetType(string t) { type = t; }
+	int GetGearCount() { return gearCount; }
+	void SetGearCount(int gc) { gearCount = gc; }
+	string GetFrameMaterial() { return frameMaterial; }
+	void SetFrameMaterial(string fm) { frameMaterial = fm; }
+	string GetBrakeType() { return brakeType; }
+	void SetBrakeType(string bt) { brakeType = bt; }
+	double GetWheelSize() { return wheelSize; }
+	void SetWheelSize(double ws) { wheelSize = ws; }
+	double GetWeight() { return weight; }
+	void SetWeight(double w) { weight = w; }
+
+	void Print()
+	{
+		Transport::Print();
+		cout << "Type: " << type << endl;
+		cout << "Gear Count: " << gearCount << endl;
+		cout << "Frame Material: " << frameMaterial << endl;
+		cout << "Brake Type: " << brakeType << endl;
+		cout << "Wheel Size: " << wheelSize << " inches" << endl;
+		cout << "Weight: " << weight << " kg" << endl;
+	}
+};
+
 int main() {
 	Transport t1("Car", 120, "Red", 5);
 	t1.Print();
@@ -132,6 +210,10 @@ int main() {
 	cout << endl;
 	Ship s1("Cargo Ship", 40, "Gray", 30, "New York", 50000, 20, "Diesel");
 	s1.Print();
-	return 0;
+	cout << endl;
+	Car c1("Sedan", 160, "Black", 5, "Model S", 2020, "Sedan", "Electric", "Automatic", "RWD");
+	c1.Print();
+	cout << endl;
+	Bicycle b1("Mountain Bike", 30, "Green", 1, "Mountain", 21, "Aluminum", "Disc", 27.5, 14.5);
 
 }
