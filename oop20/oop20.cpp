@@ -261,7 +261,7 @@ int main() {
 	tr1.Print();
 	cout << endl;
 
-	Airplane a1)("Jet Plane", 900, "White", 150, "5000 km", 35, 2, 30, "Commercial", "Turbofan");
+	Airplane a1("Jet Plane", 900, "White", 150, "5000 km", 35, 2, 30, "Commercial", "Turbofan");
 	a1.Print();
 	cout << endl;
 
