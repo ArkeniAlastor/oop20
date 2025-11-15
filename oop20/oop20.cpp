@@ -235,7 +235,7 @@ public:
 	void SetCrewSize(int cs) { crewSize = cs; }
 	double GetWeight() { return weight; }
 	void SetWeight(double w) { weight = w; }
-	double GetMainGunCaliber() { return mainGunCaliber; }
+	double GetMainGunCaliber() const { return mainGunCaliber; }
 	void SetMainGunCaliber(double mgc) { mainGunCaliber = mgc; }
 
 	void Print()
